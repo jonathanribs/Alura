@@ -1,0 +1,8 @@
+
+public class Funcionario {
+
+	private String nome;
+	private Strngi cpf;
+	private double salario;
+	
+}
