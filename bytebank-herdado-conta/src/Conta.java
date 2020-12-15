@@ -7,11 +7,11 @@ public class Conta{
 	
 	public Conta (int agencia, int numero) {
 		Conta.total++;
-		System.out.println("O total de contas � " + Conta.total);
+		//System.out.println("O total de contas e " + Conta.total);
 		this.agencia = agencia;
 		this.numero = numero;
-		this.saldo = 100;
-		System.out.println("Estou criando uma conta " + this.numero);		
+		//this.saldo = 100;
+		//System.out.println("Estou criando uma conta " + this.numero);		
 	}
 	
 	public static int getTotal() {
@@ -19,15 +19,14 @@ public class Conta{
 	}
 	
 	public void deposita(double valor) {
-		this.saldo = this.saldo + valor;
+		this.saldo += valor;
 	}
 	public boolean saca(double valor) {
 		if (this.saldo >=  valor){
 			this.saldo -= valor;
 			return true;
-		} else {
-			return false;
-		}
+		} 
+		return false;
 	}
 	public boolean transfere(double valor, Conta destino) {
 		//if (this.saldo >= valor) {
@@ -35,8 +34,9 @@ public class Conta{
 		if (saca(valor)) {
 			destino.deposita(valor);
 			return true;
+		} else {
+			return false;	
 		}
-		return false;	
 	}
 	
 	public double getSaldo(){

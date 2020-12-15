@@ -1,0 +1,231 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaBanco<bytebank-composto>",
+            "request": "launch",
+            "mainClass": "TestaBanco",
+            "projectName": "bytebank-composto"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaContaSemCliente<bytebank-composto>",
+            "request": "launch",
+            "mainClass": "TestaContaSemCliente",
+            "projectName": "bytebank-composto"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TesteSacaNegativo<bytebank-composto>",
+            "request": "launch",
+            "mainClass": "TesteSacaNegativo",
+            "projectName": "bytebank-composto"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaGetESet<bytebank-encapsulado-old>",
+            "request": "launch",
+            "mainClass": "TestaGetESet",
+            "projectName": "bytebank-encapsulado-old"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TesteContas<bytebank-encapsulado>",
+            "request": "launch",
+            "mainClass": "TesteContas",
+            "projectName": "bytebank-encapsulado"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<bytebank-herdado-conta>",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "bytebank-herdado-conta"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TesteContas<bytebank-herdado-conta>",
+            "request": "launch",
+            "mainClass": "TesteContas",
+            "projectName": "bytebank-herdado-conta"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Teste<bytebank-herdado>",
+            "request": "launch",
+            "mainClass": "Teste",
+            "projectName": "bytebank-herdado"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TesteFuncionario<bytebank-herdado>",
+            "request": "launch",
+            "mainClass": "TesteFuncionario",
+            "projectName": "bytebank-herdado"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TesteGerente<bytebank-herdado>",
+            "request": "launch",
+            "mainClass": "TesteGerente",
+            "projectName": "bytebank-herdado"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TesteReferencias<bytebank-herdado>",
+            "request": "launch",
+            "mainClass": "TesteReferencias",
+            "projectName": "bytebank-herdado"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-CriaConta<bytebank>",
+            "request": "launch",
+            "mainClass": "CriaConta",
+            "projectName": "bytebank"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaMetodo<bytebank>",
+            "request": "launch",
+            "mainClass": "TestaMetodo",
+            "projectName": "bytebank"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaReferencias<bytebank>",
+            "request": "launch",
+            "mainClass": "TestaReferencias",
+            "projectName": "bytebank"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Programa<sintaxe-basica>",
+            "request": "launch",
+            "mainClass": "Programa",
+            "projectName": "sintaxe-basica"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Fatorial<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "Fatorial",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MultiplosTres<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "MultiplosTres",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaCaracteres<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaCaracteres",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaCondicional<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaCondicional",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaCondicional2<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaCondicional2",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaConversao<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaConversao",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaEscopo<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaEscopo",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaFor<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaFor",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaLacos<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaLacos",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaLacos2<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaLacos2",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaPontoFlutuante<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaPontoFlutuante",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaSomatoria<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaSomatoria",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaValores<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaValores",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaVariaveis<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaVariaveis",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestaWhile<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TestaWhile",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TesteSwitch<sintaxe-variaveis-e-fluxo>",
+            "request": "launch",
+            "mainClass": "TesteSwitch",
+            "projectName": "sintaxe-variaveis-e-fluxo"
+        }
+    ]
+}
