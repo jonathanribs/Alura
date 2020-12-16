@@ -1,5 +1,5 @@
-
-public class Funcionario {
+//não pode instanciar dessaclasse, não pode criar um objeto com new Funcionario()
+public abstract class Funcionario {
 
 	private String nome;
 	private String cpf;
@@ -9,9 +9,9 @@ public class Funcionario {
 		
 	}
 	
-	public double getBonificacao() {
-		return this.salario * 0.05;
-	}
+	//metodo sem corpo, não há impletentação aqui (somente nos filhos)
+	//(os filhos são obrigados a implementar o metodo abstract)
+	public abstract double getBonificacao();
 	
 	public String getNome() {
 		return nome;

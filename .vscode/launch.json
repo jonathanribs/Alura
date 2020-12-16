@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TesteSistema",
+            "request": "launch",
+            "mainClass": "TesteSistema",
+            "projectName": "bytebank-herdado"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
