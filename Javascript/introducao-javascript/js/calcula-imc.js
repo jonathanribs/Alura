@@ -18,10 +18,10 @@ titulo.textContent = "Aparecida Nutricionista"; //altera o conteúdo de "titulo"
 
     var tdImc = paciente.querySelector(".info-imc");
 
-    var pesoEhValido = true;
-    var alturaEhValida = true;
+    var pesoEhValido = validaPeso(peso);
+    var alturaEhValida = validaAltura(altura);
 
-    if (peso < 0 || peso > 1000){
+    if (!pesoEhValido){
         console.log("Peso Invalido!");
         pesoEhValido = false;
         tdImc.textContent = "Peso Invalido!";
@@ -30,7 +30,7 @@ titulo.textContent = "Aparecida Nutricionista"; //altera o conteúdo de "titulo"
         //classList acessa a lista de classes, e é através dela que temos a função de adicionar nova classe
         //indo no navegador, clicar com o botao direito e selecionar inspecionar, vemos como o código html fica ali
     }
-    if (altura < 0 || altura > 3.00){
+    if (!alturaEhValida){
         console.log("Altura Invalida!");
         alturaEhValida = false;
         tdImc.textContent = "Altura Invalida!";
@@ -53,6 +53,21 @@ titulo.textContent = "Aparecida Nutricionista"; //altera o conteúdo de "titulo"
  //function mostraMensagem(){
  //   console.log("Chamando uma função anônima em um evento");
  //}       //A diferença é que passaria só o nome da função, e na anonima ela nem precisa de ter um nome
+
+ function validaPeso(peso){
+     if (peso >= 0 && peso < 1000){
+         return true;
+     } else {
+         return false;
+     }
+ }
+ function validaAltura(altura){
+    if (altura >= 0 && altura <= 3.0){
+        return true;
+    } else {
+        return false;
+    }
+}
 
  function calculaImc(peso, altura){
      var imc = 0;

@@ -1,32 +1,61 @@
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
- botaoAdicionar.addEventListener('click', function(event){ 
+ botaoAdicionar.addEventListener('click', function(event){ //aparentemente posso usar aspas duplas ou simples que não faz diferença
     event.preventDefault();
 
+    //Salvando as informações preenchidas pelo usuário
     var form = document.querySelector("#form-adiciona");
+   //  nome = form.nome.value;    //assim que era o codigo antigo, mantive ele comentado para eu entender a parte de baixo
+   //  peso = form.peso.value;    
+   //  altura = form.altura.value;
+   //  gordura = form.gordura.value;
     var paciente = obtemPacienteDoFormulario(form);
 
-    console.log(paciente); 
+    console.log(paciente); //exibindo o objeto criado
  
-    var erros = validaPaciente(paciente);
-    console.log(erros);
-    if (erros.length > 0){
+    //Criando a tr e td do paciente (linhas e colunas da nossa tabela) -      Comentei tudo pois será feito em função mais abaixo
+    var pacienteTr = montaTr(paciente);
+   //  var pacienteTr = document.createElement("tr");
+
+   //  var nomeTd = document.createElement("td"); //cria os elementos da tabela "internamente"
+   //  var pesoTd = document.createElement("td");
+   //  var alturaTd = document.createElement("td");
+   //  var gorduraTd = document.createElement("td");
+   //  var imcTd = document.createElement("td");
+
+   //  nomeTd.textContent = nome; //preenchendo a tabela
+   //  pesoTd.textContent = peso;
+   //  alturaTd.textContent = altura;
+   //  gorduraTd.textContent = gordura;
+   //  imcTd.textContent = calculaImc(peso, altura);;
+
+   //  pacienteTr.appendChild(nomeTd); //montando a tabela (uma linha da tabela)
+   //  pacienteTr.appendChild(pesoTd);
+   //  pacienteTr.appendChild(alturaTd);
+   //  pacienteTr.appendChild(gorduraTd);
+   //  pacienteTr.appendChild(imcTd);
+
+   var erros = validaPaciente(paciente);
+   console.log(erros);
+   
+   if (erros.length > 0){
       exibeMensagensDeErro(erros);   
       return;
-    }
-    
-    adicionaPacienteNaTabela(paciente);
-    
+   }
+    //adicionando o paciente na tabela
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+
     form.reset();
     var ul = document.querySelector("#mensagens-erro");
     ul.innerHTML = "";
 
  });
 
-  function adicionaPacienteNaTabela(paciente){
-     var pacienteTr = montaTr(paciente);
-     var tabela = document.querySelector("#tabela-pacientes");
-     tabela.appendChild(pacienteTr);
-  }
+//  function adicionaPacienteNaTabela(paciente){
+//     var pacienteTr = montaTr(paciente);
+//     var tabela = document.querySelector("#tabela-pacientes");
+//     tabela.appendChild(pacienteTr);
+//  }
  
  function exibeMensagensDeErro(erros){
     var ul = document.querySelector("#mensagens-erro");
