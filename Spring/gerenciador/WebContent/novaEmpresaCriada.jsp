@@ -1,7 +1,7 @@
 <%//java server page -> JSP//
 	//Isso é um scriplet
-	String nomeEmpresa = "Alura";
-	System.out.println(nomeEmpresa);
+	String nomeEmpresa = (String)request.getAttribute("empresa");
+	System.out.println(nomeEmpresa + " (scriplet na JSP)");
 %>
 
 <html><body> 
