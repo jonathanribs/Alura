@@ -40,10 +40,15 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		//chamar o JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas"); //indicar um local para onde vamos despachar dados
-		request.setAttribute("empresa", empresa.getNome()); //mandar o nome da empresa "em anexo" a Request
-		rd.forward(request, response); //repassar a req e resp para frente, no caso para .jsp 		
+		response.sendRedirect("listaEmpresas"); //ATENÇÃO: aqui não tem a "/"
+		request.setAttribute("empresa", empresa.getNome()); //esta variavel "pendurada" na requisição, não vai para a listaEmpresas pois desta forma que está feito é chamada uma nova requisição.
+															//por isso não imprime a mensagem de nova empresa casatrada...
+
+		
+//		//chamar o JSP
+//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas"); //indicar um local para onde vamos despachar dados
+//		request.setAttribute("empresa", empresa.getNome()); //mandar o nome da empresa "em anexo" a Request
+//		rd.forward(request, response); //repassar a req e resp para frente, no caso para .jsp 		
 		
 	}
 
