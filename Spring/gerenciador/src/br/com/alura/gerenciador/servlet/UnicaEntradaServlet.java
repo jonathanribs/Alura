@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.acao.AlteraEmpresa;
-import br.com.alura.gerenciador.acao.ListaEmpresas;
-import br.com.alura.gerenciador.acao.MostraEmpresa;
-import br.com.alura.gerenciador.acao.NovaEmpresa;
-import br.com.alura.gerenciador.acao.NovaEmpresaForm;
-import br.com.alura.gerenciador.acao.RemoveEmpresa;
+import br.com.alura.gerenciador.acao.Acao;
 
 @WebServlet("/entrada")
 public class UnicaEntradaServlet extends HttpServlet {
@@ -23,31 +18,20 @@ public class UnicaEntradaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String paramAcao = request.getParameter("acao");
-		//podia ser usado tbm request.getRequestURI() para direcionar usando o nome da URL mesmo, mas pra isso deve-se mudar o mapeamento para / [@WebServlet("/")] e também todos os arquivos que foram adaptados para enviar o parametro acao
+
+		String nomeDaClasse = "br.com.alura.gerenciador.acao." + paramAcao;
 		
-		String nome = null;
-		
-		if(paramAcao.equals("ListaEmpresas")) {			
-			System.out.println("listando empresas");			
-			ListaEmpresas acao = new ListaEmpresas();
-			nome = acao.executa(request, response);			
-		} else if(paramAcao.equals("RemoveEmpresa")) {			
-			RemoveEmpresa acao = new RemoveEmpresa();
-			nome = acao.executa(request, response);		
-		} else if(paramAcao.equals("MostraEmpresa")) {
-			MostraEmpresa acao = new MostraEmpresa();
-			nome = acao.executa(request, response);			
-		} else if(paramAcao.equals("AlteraEmpresa")) {
-			AlteraEmpresa acao = new AlteraEmpresa();
+		String nome;
+		try {
+			Class classe = Class.forName(nomeDaClasse); //carrega a classe que tem o nome da String passada
+			Object obj = classe.newInstance();
+			Acao acao = (Acao)obj; //não precisava de usar a classe Object como intermediario, podia ser feito -> Acao acao = (Acao)classe.newInstance(); . Deixei a classe Object para eu me lembrar que ela existe...
 			nome = acao.executa(request, response);
-		} else if(paramAcao.equals("NovaEmpresa")) {
-			NovaEmpresa acao = new NovaEmpresa();
-			nome = acao.executa(request, response);			
-		}else if(paramAcao.equals("NovaEmpresaForm")) {
-			NovaEmpresaForm acao = new NovaEmpresaForm();
-			nome = acao.executa(request, response);			
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			throw new ServletException(e);
 		}
 		
+		// Essa parte do código ia abaixo dos comentários...
 		String[] tipoEEndereco = nome.split(":");
 		if (tipoEEndereco[0].equals("forward")) {	
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEEndereco[1]);
@@ -55,6 +39,29 @@ public class UnicaEntradaServlet extends HttpServlet {
 		} else {		
 			response.sendRedirect(tipoEEndereco[1]);
 		}
+		
+//		String nome = null;
+//		
+//		if(paramAcao.equals("ListaEmpresas")) {			
+//			System.out.println("listando empresas");			
+//			ListaEmpresas acao = new ListaEmpresas();
+//			nome = acao.executa(request, response);			
+//		} else if(paramAcao.equals("RemoveEmpresa")) {			
+//			RemoveEmpresa acao = new RemoveEmpresa();
+//			nome = acao.executa(request, response);		
+//		} else if(paramAcao.equals("MostraEmpresa")) {
+//			MostraEmpresa acao = new MostraEmpresa();
+//			nome = acao.executa(request, response);			
+//		} else if(paramAcao.equals("AlteraEmpresa")) {
+//			AlteraEmpresa acao = new AlteraEmpresa();
+//			nome = acao.executa(request, response);
+//		} else if(paramAcao.equals("NovaEmpresa")) {
+//			NovaEmpresa acao = new NovaEmpresa();
+//			nome = acao.executa(request, response);			
+//		}else if(paramAcao.equals("NovaEmpresaForm")) {
+//			NovaEmpresaForm acao = new NovaEmpresaForm();
+//			nome = acao.executa(request, response);			
+//		}
 		
 	}
 
