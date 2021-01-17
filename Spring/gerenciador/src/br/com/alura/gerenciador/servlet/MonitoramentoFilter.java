@@ -9,7 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(urlPatterns="/entrada") //annotation não tem ponto e virgula. Essa é outra forma de declaração, equivalente ao da UnicaEntradaServlet.java
+//@WebFilter(urlPatterns="/entrada") //annotation não tem ponto e virgula. Essa é outra forma de declaração, equivalente ao da UnicaEntradaServlet.java
 public class MonitoramentoFilter implements Filter {
 
 	@Override
