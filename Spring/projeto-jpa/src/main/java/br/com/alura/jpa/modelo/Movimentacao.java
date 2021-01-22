@@ -20,6 +20,7 @@ public class Movimentacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 
+	//só no final que vi que estes Get e Set ficaram antes do restantes dos atributos. Mas vou deixar pra saber que funciona...
 	public List<Categoria> getCategoria() {
 		return categoria;
 	}
