@@ -1,12 +1,9 @@
 package br.com.alura.jpa.modelo;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Conta {
@@ -17,15 +14,20 @@ public class Conta {
 	private Integer agencia;
 	private Integer numero;
 	private Double saldo;
-	@OneToMany(mappedBy="conta") //uma conta pode ter varias movimentacoes. O mappedBy diz que este relacionamento já está mapeado no atributo "conta" da classe 'abaixo', no caso "movimentacoes"
-	private List<Movimentacao> movimentacoes;
-
-	public Double getSaldo() {
-		return saldo;
-	}
 
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
+	}
+	
+	
+
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getTitular() {
@@ -50,17 +52,5 @@ public class Conta {
 
 	public void setNumero(Integer numero) {
 		this.numero = numero;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public List<Movimentacao> getMovimentacoes() {
-		return this.movimentacoes;
 	}
 }
