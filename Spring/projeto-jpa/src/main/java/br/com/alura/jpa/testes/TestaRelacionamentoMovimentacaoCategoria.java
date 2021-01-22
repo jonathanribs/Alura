@@ -23,7 +23,7 @@ public class TestaRelacionamentoMovimentacaoCategoria {
 		
 		Conta conta = new Conta();
 		conta.setId((long)2); //a anotação 2L também funciona
-		
+
 		Movimentacao movimentacao = new Movimentacao();
 		movimentacao.setDescricao("Viagem à São Paulo");
 		movimentacao.setTipoMovimentacao(TipoMovimentacao.SAIDA);
@@ -38,7 +38,7 @@ public class TestaRelacionamentoMovimentacaoCategoria {
 		movimentacao2.setData(LocalDateTime.now());
 		movimentacao2.setValor(new BigDecimal(400.0));
 		movimentacao2.setCategoria(Arrays.asList(categoria, categoria2));
-		movimentacao.setConta(conta);
+		movimentacao2.setConta(conta);
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 		EntityManager em = emf.createEntityManager();
