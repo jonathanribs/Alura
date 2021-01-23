@@ -1,14 +1,11 @@
 package br.com.alura.jpa.testes;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-
-import br.com.alura.jpa.modelo.Conta;
-import br.com.alura.jpa.modelo.Movimentacao;
 
 public class TestaRelatorioDasMovimentacoes {
 
@@ -17,17 +14,15 @@ public class TestaRelatorioDasMovimentacoes {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas");
 		EntityManager em = emf.createEntityManager();
 		
-		String jpql = "select c from Conta c";
-		TypedQuery<Conta> query = em.createQuery(jpql, Conta.class);
+		//String jpql = "select sum(m.valor) from Movimentacao m";//soma
+		String jpql = "select avg(m.valor) from Movimentacao m"; //media
 		
-		List<Conta> contas= query.getResultList();
-		for (Conta conta : contas) {
-			System.out.println("Titular: " + conta.getTitular());
-			System.out.println("Agencia: " + conta.getAgencia());
-			System.out.println("Numero: " + conta.getNumero());
-			System.out.println("Movimentacoes: " + conta.getMovimentacoes());
-		}
+		TypedQuery<Double> query = em.createQuery(jpql, Double.class);
+		Double mediaDasMovimentacoes = query.getSingleResult();
 		
+		System.out.println("A soma das movimentacoes é: " + mediaDasMovimentacoes);
 		
 	}
+		
+		
 }
