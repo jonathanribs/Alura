@@ -32,7 +32,7 @@ public class Movimentacao {
 		this.categoria = categoria;
 	}
 
-	@Enumerated(EnumType.STRING)
+	@Enumerated//(EnumType.STRING)//estava usando o nome do nosso Enum, mas mudou para posição, onde 1 é Entrada e 2 Saída
 	private TipoMovimentacao tipoMovimentacao;
 	private LocalDateTime data;
 	private String descricao;
