@@ -11,7 +11,7 @@ import br.com.alura.spring.data.repository.CargoRepository;
 public class CrudCargoService {
 
 	private final CargoRepository cargoRepository;
-	private Boolean system = true;
+	//private Boolean system = true;
 
 	//Construtor
 	public CrudCargoService(CargoRepository cargoRepository) {
@@ -20,6 +20,7 @@ public class CrudCargoService {
 	
 	//Métodos
 	public void inicial(Scanner scanner) {
+		Boolean system = true;
 		while(system) {
 			System.out.println("Qual acao de cargo deseja executar");
 			System.out.println("0 - Sair");

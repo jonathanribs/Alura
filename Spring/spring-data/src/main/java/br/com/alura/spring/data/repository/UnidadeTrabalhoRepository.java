@@ -4,10 +4,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.alura.spring.data.orm.Cargo;
+import br.com.alura.spring.data.orm.UnidadeTrabalho;
 
 @Repository
-public interface CargoRepository extends CrudRepository<Cargo, Integer>{
-	//para o CrudRepository deve ser passado a entidade e o tipo do seu ID
+public interface UnidadeTrabalhoRepository extends CrudRepository<UnidadeTrabalho, Integer>{
 	
 	
 }
