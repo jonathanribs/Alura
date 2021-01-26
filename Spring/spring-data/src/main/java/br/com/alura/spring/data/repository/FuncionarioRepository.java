@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.alura.spring.data.orm.Cargo;
 import br.com.alura.spring.data.orm.Funcionario;
+import br.com.alura.spring.data.orm.FuncionarioProjecao;
 
 @Repository
 public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Integer>{
@@ -20,6 +21,9 @@ public interface FuncionarioRepository extends PagingAndSortingRepository<Funcio
 	@Query("SELECT f FROM Funcionario f WHERE f.nome = :pNome AND f.salario >= :pSalario AND f.dataContratacao = :pData")
 	List<Funcionario> findNomeSalarioMaiorDataContratacao(String pNome, Double pSalario, LocalDate pData);
 	
-	List<Funcionario> findByNome(String nome);//no caso, como é uma busca, colocando o "findBy" ele já cria de acordo com os parâmetros que colocamos, e se colocarmos "And" ele entende que são parâmetros diferentes
+	List<Funcionario> findByNome(String nome);
+	
+	@Query(value = "SELECT f.id, f.nome, f.salario FROM funcionarios f", nativeQuery = true)
+	List<FuncionarioProjecao> findFuncionarioSalario();
 }
 
