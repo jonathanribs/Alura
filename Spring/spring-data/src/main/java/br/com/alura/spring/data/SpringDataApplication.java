@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.com.alura.spring.data.service.CrudCargoService;
 import br.com.alura.spring.data.service.CrudFuncionarioService;
 import br.com.alura.spring.data.service.CrudUnidadeTrabalhoService;
+import br.com.alura.spring.data.service.RelatorioFuncionarioDinamico;
 import br.com.alura.spring.data.service.RelatoriosService;
 
 @SpringBootApplication
@@ -18,15 +19,20 @@ public class SpringDataApplication implements CommandLineRunner{
 	private final CrudFuncionarioService funcionarioService;
 	private final CrudUnidadeTrabalhoService unidadeService;
 	private final RelatoriosService relatoriosService;
+	private final RelatorioFuncionarioDinamico relatorioFuncionarioDinamico;
 	private Boolean system = true;
 	
 	//Construtor
-	public SpringDataApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService, 
-			CrudUnidadeTrabalhoService unidadeService, RelatoriosService relatoriosService) {
+	public SpringDataApplication(CrudCargoService cargoService, 
+			CrudFuncionarioService funcionarioService, 
+			CrudUnidadeTrabalhoService unidadeService, 
+			RelatoriosService relatoriosService, 
+			RelatorioFuncionarioDinamico relatorioFuncionarioDinamico) {
 		this.cargoService = cargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeService = unidadeService;
 		this.relatoriosService = relatoriosService;
+		this.relatorioFuncionarioDinamico = relatorioFuncionarioDinamico;
 	}
 	
 	//Métodos
@@ -45,6 +51,7 @@ public class SpringDataApplication implements CommandLineRunner{
 			System.out.println("2 - Funcionario");
 			System.out.println("3 - UnidadeTrabalho");
 			System.out.println("4 - Relatorios");
+			System.out.println("5 - Relatorio Dinamico");
 			
 			int action = scanner.nextInt();
 			if(action == 1) {
@@ -55,6 +62,8 @@ public class SpringDataApplication implements CommandLineRunner{
 				unidadeService.inicial(scanner);
 			} else if(action == 4) {
 				relatoriosService.inicial(scanner);
+			} else if(action == 5) {
+				relatorioFuncionarioDinamico.inicial(scanner);
 			} else {
 				system = false;
 			}
