@@ -1,7 +1,5 @@
 package br.com.alura.mvc.mudi.controller;
 
-//import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +12,6 @@ public class HelloController {
 		model.addAttribute("nome", "Mundo");
 		return "hello";
 	}
-//	public String hello(HttpServletRequest request) {
-//		request.setAttribute("nome", "Mundo");
-//		return "hello";
-//	}
 }
+
+
