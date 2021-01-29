@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice
+@RestControllerAdvice //Intercepta qualquer exceptions que forem lançadas nos métodos das classes controller
 public class ErroDeValidacaoHandler {
 	
 	@Autowired
@@ -27,7 +27,7 @@ public class ErroDeValidacaoHandler {
 		
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		fieldErrors.forEach(e -> {
-			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale());
+			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale());//pega a mensagem na lingua que esta sendo trabalhada
 			ErroDeFormularioDto erro = new ErroDeFormularioDto(e.getField(), mensagem);
 			dto.add(erro);
 		});
