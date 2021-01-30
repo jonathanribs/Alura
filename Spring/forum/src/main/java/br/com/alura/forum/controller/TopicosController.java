@@ -6,8 +6,11 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,8 +43,10 @@ public class TopicosController {
 	private CursoRepository cursoRepository;
 	
 	@GetMapping
-	public Page<TopicoDto> lista(@RequestParam(required=false) String nomeCurso, Pageable paginacao){//A anotação reforça que os parâmetros são aqueles passados na URL e impõe que eles sejam obrigatorios para este método (para evitar isso o required=false)
-		
+	@Cacheable(value = "listaDeTopicos")
+	public Page<TopicoDto> lista(@RequestParam(required=false) String nomeCurso, 
+			@PageableDefault(sort = "id", direction = Direction.DESC, page = 0, size = 10) Pageable paginacao){
+		//page=0&size=10&sort=id,asc //Esta é a forma que os parâmetros devem ser escritos na URL (após a "?") para definir página, numero de elementos por página, por qual atributo será ordenado e se é crescente ou decrescente (após a "virgula" mesmo)
 		
 		if (nomeCurso == null) {
 			Page<Topico> topicos = topicoRepository.findAll(paginacao);
