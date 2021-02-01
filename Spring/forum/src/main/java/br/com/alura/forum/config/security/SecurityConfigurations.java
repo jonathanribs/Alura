@@ -58,6 +58,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 	//Configurações de recursos estatísticos (requisição para js, css, imagens, etc...)
 	@Override
 	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**");
 	}
 
 //	public static void main(String[] args) { //método criado só para pegar a senha 123456 encriptada, para passar de inicio no arquivo data.sql para testes
