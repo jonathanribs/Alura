@@ -33,14 +33,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	            .defaultSuccessUrl("/home", true)
 	            .permitAll()
 	        )
-			.logout(logout -> logout.logoutUrl("/logout"));
+			.logout(logout -> logout.logoutUrl("/logout"))
+			.csrf().disable();
 	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
-//		//crian um usuario no banco de dados (todos foram criados por aqui e alterados)
+//		//cria um usuario no banco de dados (todos foram criados por aqui e alterados)
 //		UserDetails user =
 //				 User.builder()
 //					.username("maria")
