@@ -17,7 +17,7 @@ public class RequisicaoNovaOferta {
 	@Pattern(regexp = "^\\d+(\\.\\d+{2})?$") //entre chaves é a qtd de digitos. Entre parenteses é que não é obrigatorio, "?$" é para informar que acabou. O "+" é para deixar qtd indefinida
 	@NotNull
 	private String valor;
-	@Pattern(regexp = "^\\d{2}/\\d{2}/\\d{4})?$")
+	@Pattern(regexp = "^\\d{2}/\\d{2}/\\d{4}?$")
 	@NotNull
 	private String dataDaEntrega;
 	private String comentario;
