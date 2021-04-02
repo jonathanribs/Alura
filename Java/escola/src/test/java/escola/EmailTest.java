@@ -13,4 +13,11 @@ class EmailTest {
 		assertThrows(IllegalArgumentException.class, () -> new Email("emailInvalido"));
 	}
 
+	
+	@Test
+	void deveriaPermitirCriarEmailComEnderecoValido() {
+		String endereco = "email@email.com";
+		Email email = new Email(endereco);
+		assertEquals(endereco, email.getEndereco());
+	}
 }
