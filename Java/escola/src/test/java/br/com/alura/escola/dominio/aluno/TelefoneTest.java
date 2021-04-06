@@ -1,10 +1,10 @@
-package br.com.alura.escola.aluno;
+package br.com.alura.escola.dominio.aluno;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import br.com.alura.escola.aluno.Telefone;
+import br.com.alura.escola.dominio.aluno.Telefone;
 
 class TelefoneTest {
 
