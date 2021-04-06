@@ -2,11 +2,16 @@ package br.com.alura.escola.infra.aluno;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import br.com.alura.escola.dominio.aluno.Aluno;
+import br.com.alura.escola.dominio.aluno.AlunoNaoEncontrado;
 import br.com.alura.escola.dominio.aluno.CPF;
+import br.com.alura.escola.dominio.aluno.Email;
 import br.com.alura.escola.dominio.aluno.RepositorioDeAlunos;
 import br.com.alura.escola.dominio.aluno.Telefone;
 
@@ -45,8 +50,36 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 
 	@Override
 	public Aluno buscarPorCPF(CPF cpf) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			String sql = "SELECT id, nome, email FROM ALUNO WHERE cpf = ?";
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, cpf.getNumero());
+			
+			ResultSet rs = ps.executeQuery();
+			boolean encontrou = rs.next();
+			if(!encontrou) {
+				throw new AlunoNaoEncontrado(cpf);
+			}
+			
+			String nome = rs.getString("nome");
+			Email email = new Email(rs.getString("email"));
+			Aluno encontrado = new Aluno(cpf, nome, email);
+			
+			Long id = rs.getLong("id");
+			sql = "SELECT ddd, numero FROM TELEFONE WHERE aluno_id = ?";
+			ps = connection.prepareStatement(sql);
+			ps.setLong(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				String numero = rs.getString("numero");
+				String ddd = rs.getString("ddd");
+				encontrado.adicionarTelefone(ddd, numero);
+			}
+			
+			return encontrado;
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override
