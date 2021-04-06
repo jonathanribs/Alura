@@ -10,7 +10,10 @@ public class Aluno {
 	private CPF cpf;
 	private String nome;
 	private Email email;
+	
 	private List<Telefone> telefones = new ArrayList<>(); //importante iniciar inicialmente para já criar uma lista vazia, pois se for uma lista nula pode dar problemas a frente
+	
+	private String senha;
 	
 	
 	public Aluno(CPF cpf, String nome, Email email) {
