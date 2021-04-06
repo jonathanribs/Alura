@@ -10,7 +10,7 @@ public class Aluno {
 	private CPF cpf;
 	private String nome;
 	private Email email;
-	private List<Telefone> telefone = new ArrayList<>(); //importante iniciar inicialmente para já criar uma lista vazia, pois se for uma lista nula pode dar problemas a frente
+	private List<Telefone> telefones = new ArrayList<>(); //importante iniciar inicialmente para já criar uma lista vazia, pois se for uma lista nula pode dar problemas a frente
 	
 	
 	public Aluno(CPF cpf, String nome, Email email) {
@@ -21,23 +21,23 @@ public class Aluno {
 
 	
 	public void adicionarTelefone(String ddd, String numero) {
-		this.telefone.add(new Telefone(ddd, numero));
+		this.telefones.add(new Telefone(ddd, numero));
 	}
 
-	public CPF getCpf() {
-		return cpf;
+	public String getCpf() {
+		return cpf.getNumero();
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public Email getEmail() {
-		return email;
+	public String getEmail() {
+		return email.getEndereco();
 	}
 
-	public List<Telefone> getTelefone() {
-		return telefone;
+	public List<Telefone> getTelefones() {
+		return telefones;
 	}
 
 }
