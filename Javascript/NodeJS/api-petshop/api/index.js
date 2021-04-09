@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express()
-//const bodyParser = require('body-parser')
+const config = require('config')
 
-//Definir json como padrão para nossa api
-//app.use(bodyParser.json()) //bodyParser ficou como deprecated, então foi substituido pelas 2 linhas abaixo
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.listen(3000, () => console.log('A API está funcionando!'))
+const roteador = require('./rotas/fornecedores')
+app.use('/api/fornecedores', roteador)
+
+app.listen(config.get('api.porta'), () => console.log('A API está funcionando!'))
